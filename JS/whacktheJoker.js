@@ -1,8 +1,13 @@
 class WhacktheJoker{
     
+    // set the properties required for the game
     constructor(){
+        let life = 3;
+        let score = 0;
+        level = 1
     }
 
+    // how does mole peep with respect to speed and 
     peep() {
         const time = speed(); // ??? 
         const hole = randomHole(holes);
