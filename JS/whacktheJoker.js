@@ -1,10 +1,14 @@
 class WhacktheJoker{
     
     // set the properties required for the game
-    constructor(){
-        let life = 3;
-        let score = 0;
-        level = 1
+    constructor(startButton, moles, joker, score, gameTime, peepTime, lives){
+        this.btnStart = startButton
+        this.moles = moles
+        this.joker = joker
+        this.score = score
+        this.gameTime = gameTime
+        this.peepTime = peepTime
+        this.lives = lives
     }
 
     // how does mole peep with respect to speed and 
@@ -36,14 +40,15 @@ class WhacktheJoker{
         return time;
     }
         
-    randomHole(holes) {
+    randomHole() {
         // Write the logic that the hamster randomly chooses to drill a hole, if it is the same hole as the previous one, then select a hole again.
             let hole = 0;
-            
+            let lastHole = 0
     		let holeNumber=Math.floor(Math.random()*9);
     		hole=holes[holeNumber];
     	    if(lastHole!=null){
-    	   		 if(hole==lastHole){
+                    
+                if(hole===lastHole){
                     randomHole(hole) 
                     }
                     else{
@@ -53,7 +58,7 @@ class WhacktheJoker{
        return hole;
     }
 
-    comeOutAndStop(hole, time) {
+    comeOutAndStop(hole, peepTime) {
     // Write the hamster out of the hole and stay for the corresponding time. If the game time is not over (timeUp), continue to exit the hole (peep).
      hole.classList.add('up');
      setTimeout(() => {
@@ -61,7 +66,24 @@ class WhacktheJoker{
         if(!timeUp){
         peep();
          }
-         },time);
+         },peepTime);
 
     }
-}
+
+    gameIsFinished(lives,timeUp){
+        // write the logic for finishing the game
+      /*   if(lives === 0 && timeUp === true) {
+            alert("Gameover");
+        }else{
+            alert("Continue the game")
+        } */
+        console.log("Game Over");
+        
+        }
+
+        test(){
+            console.log(In what a Joker);
+        }
+        
+    }
+

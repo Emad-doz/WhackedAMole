@@ -1,4 +1,4 @@
-const whackedTheMole  = new whackedTheMole();
+
 
 window.onload = function () {
 
@@ -7,23 +7,17 @@ window.onload = function () {
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker')
     const startBtn = document.getElementById('start_btn');
-
-    //const lifes1 = document.getElementById('lifes1');
-    //const lifes2 = document.getElementById('lifes2');
-    //const lifes3 = document.getElementById('lifes3')
     let titleH1 = document.getElementById('title3');
     let titleH2 = document.getElementById('title2');
     let howToPlay=document.getElementsByClassName("how_to_play")
+    let lives=document.getElementsByClassName("nooflives")
 
     let lastHole;
     let timeUp = false;
     let score = 0;
     let gameTime = 10000;
 
-    let lives = 3;
 
-
-    
 
     startBtn.addEventListener('click', function () {
         showBtnAnimation();
@@ -61,8 +55,8 @@ window.onload = function () {
      */
     function resetScoreAndTime() {
         // Write the initial settings of the game
-        titleH1.innerHTML="WHACK-A-MOLE"; // maha: do we need this ??
-        titleH2.innerHTML= "1" // // maha: do we need this ??
+        titleH1.innerHTML="WHACK-A-MOLE"; 
+        titleH2.innerHTML= "1" 
         scoreBoard.innerHTML=0; 
         timeUp = false;
         score = 0;
@@ -174,4 +168,15 @@ window.onload = function () {
     	}    	
     }));
 
+
+    
+
+
+
+
 };
+   
+const whacktheMole = new WhackedTheMole();
+whacktheMole.gameIsFinished(lives,timeUp);
+const whackTheJoker = new WhacktheJoker();
+whackTheJoker.test();
