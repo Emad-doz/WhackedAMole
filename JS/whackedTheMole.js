@@ -1,36 +1,39 @@
 class whackedTheMole {
-    constructor(){
-        this.holes = []
-        this.timeUp = timeUp
+    constructor(startButton, moles, joker, score, gameTime, peepTime, lives){
+        this.btnStart = startButton
+        this.moles = moles
+        this.joker = joker
+        this.score = score
+        this.gameTime = gameTime
+        this.peepTime = peepTime
         this.lives = lives
     }
 
     peep() {
-        const time = speed();
+        const peepTime = speed();
         const hole = randomHole();
-        comeOutAndStop(hole, time);
+        comeOutAndStop(hole, peepTime);
     }
 
     speed(number) {
         // Write the logic to get the speed of the mole 
         switch(number){
             case 1 :
-                time = 2500;
+                this.peepTime = 2500;
                 break;
             case 2 :
-                time = 2000;
+                this.peepTime = 2000;
                 break;
             case 3 :
-                time = 1500;
+                this.peepTime = 1500;
                 break;
             case 4 :
-                time = 1000;
+                this.peepTime = 1000;
                 break;
             default:
-                time = 2500;
+                this.peepTime = 2500;
         }
-
-        return time;
+        return this.peepTime;
     }
 
     randomHole() {
@@ -53,7 +56,7 @@ class whackedTheMole {
        //return null;
     }
 
-    comeOutAndStop(hole, time) {
+    comeOutAndStop(hole, peepTime) {
         // Write the hamster out of the hole and stay for the corresponding time. If the game time is not over (timeUp), continue to exit the hole (peep).
          hole.classList.add('up');
          setTimeout(() => {
@@ -61,10 +64,10 @@ class whackedTheMole {
         if(!gameIsFinished()){
         	peep();
         }
-      },time);
+      },peepTime);
     }
 
-    gameIsFinished(){
-        
+    gameIsFinished(lives, gameTime ){
+        // write the logic for finishing the game
     }
 }
