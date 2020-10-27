@@ -1,4 +1,4 @@
-const whackedTheMole  = new whackedTheMole();
+
 
 window.onload = function () {
 
@@ -7,19 +7,17 @@ window.onload = function () {
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker')
     const startBtn = document.getElementById('start_btn');
-    //const lifes1 = document.getElementById('lifes1');
-    //const lifes2 = document.getElementById('lifes2');
-    //const lifes3 = document.getElementById('lifes3')
     let titleH1 = document.getElementById('title3');
     let titleH2 = document.getElementById('title2');
+    let howToPlay=document.getElementsByClassName("how_to_play")
+    let lives=document.getElementsByClassName("nooflives")
 
     let lastHole;
     let timeUp = false;
     let score = 0;
     let gameTime = 10000;
-    let lives = 3;
 
-    
+
 
     startBtn.addEventListener('click', function () {
         showBtnAnimation();
@@ -27,13 +25,13 @@ window.onload = function () {
     }, false);
 
     function showBtnAnimation() {
-        event.preventDefault();
+        event.preventDefault(); 
 
         startBtn.classList.add('started');
-        // Button animation delay, what happens after the button animation ends: change to normal state (the start in the class is removed), the start button disappears
+        
         setTimeout(() => {
             startBtn.classList.remove('started');
-            startBtn.style.display = 'none';
+            startBtn.style.display = 'none'; 
         }, gameTime);
     }
 
@@ -57,9 +55,9 @@ window.onload = function () {
      */
     function resetScoreAndTime() {
         // Write the initial settings of the game
-        titleH1.innerHTML="WHACK-A-MOLE";
-        titleH2.innerHTML= "1"
-        scoreBoard.innerHTML=0;
+        titleH1.innerHTML="WHACK-A-MOLE"; 
+        titleH2.innerHTML= "1" 
+        scoreBoard.innerHTML=0; 
         timeUp = false;
         score = 0;
         gameTime = 10000;
@@ -68,8 +66,10 @@ window.onload = function () {
     /**
      * Out of the hole.
      */
+
     /*function peep() {
         const time = speed();
+>>>>>>> 9a476805ae5c0398546c5231b7a5f2223d8a0850
         const hole = randomHole(holes);
         comeOutAndStop(hole, time);
     }*/
@@ -150,27 +150,33 @@ window.onload = function () {
     	}    
     }));
 
+    //Click event listener for how to play button
+    howToPlay.addEventListener('click', function myFunction() {
+            var popup = document.getElementsByClassName("how_to_play");
+            popup.classList.toggle("show");
+          
+    })
+
+
     joker.forEach(joker => joker.addEventListener('click', function (e) {
         //  Write here what happened when the user clicked the joker.
         	console.log(e);
     	if(!timeUp){
             lives --;
-
-            switch(lives){
-                case 2 :
-                    lives1.classList.add('gray');
-                    break;
-                case 1 :
-                    lives1.classList.add('gray');
-                    lives2.classList.add('gray');
-                    break;
-                case 0 :
-                    lives1.classList.add('gray');
-                    lives2.classList.add('gray');
-                    lives3.classList.add('gray');
-                    gameIsFinished();
-            }
+            life.innerHTML=lives
+            
     	}    	
     }));
 
+
+    
+
+
+
+
 };
+   
+const whacktheMole = new WhackedTheMole();
+whacktheMole.gameIsFinished(lives,timeUp);
+const whackTheJoker = new WhacktheJoker();
+whackTheJoker.test();

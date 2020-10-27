@@ -55,6 +55,7 @@
     width: 250px;
     font-size: 3em;
   }
+
   .scorediv {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -63,7 +64,7 @@
   
   .lifediv {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
   }
   
   .borders {
