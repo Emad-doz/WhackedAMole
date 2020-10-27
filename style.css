@@ -1,0 +1,37 @@
+title{
+    align-items: center;
+}
+
+html {
+    
+    background: plum;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+h1{
+    font-size: 90px;
+}
+
+.container-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #life{
+      width:30px;
+      height:30px;
+  }
+
+.life-display{
+      margin-top: 50px;
+      }
+
+#score{
+    margin-left: auto;
+}
