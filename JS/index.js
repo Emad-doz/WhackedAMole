@@ -1,3 +1,5 @@
+const whackedTheMole  = new whackedTheMole();
+
 window.onload = function () {
 
     const holes = document.querySelectorAll('.hole');
@@ -5,9 +7,9 @@ window.onload = function () {
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker')
     const startBtn = document.getElementById('start_btn');
-    const lifes1 = document.getElementById('lifes1');
-    const lifes2 = document.getElementById('lifes2');
-    const lifes3 = document.getElementById('lifes3')
+    //const lifes1 = document.getElementById('lifes1');
+    //const lifes2 = document.getElementById('lifes2');
+    //const lifes3 = document.getElementById('lifes3')
     let titleH1 = document.getElementById('title3');
     let titleH2 = document.getElementById('title2');
 
@@ -15,7 +17,7 @@ window.onload = function () {
     let timeUp = false;
     let score = 0;
     let gameTime = 10000;
-    let lifes = 0;
+    let lives = 3;
 
     
 
@@ -66,13 +68,13 @@ window.onload = function () {
     /**
      * Out of the hole.
      */
-    function peep() {
+    /*function peep() {
         const time = speed();
         const hole = randomHole(holes);
         comeOutAndStop(hole, time);
-    }
+    }*/
 
-    function speed() {
+    /*function speed() {
         // Write the logic to get the speed of the mole 
         switch(titleH2.innerHTML){
             case 1 :
@@ -92,9 +94,9 @@ window.onload = function () {
         }
 
         return time;
-    }
+    }*/
 
-    function randomHole(holes) {
+    /*function randomHole(holes) {
         // Write the logic that the hamster randomly chooses to drill a hole, if it is the same hole as the previous one, then select a hole again.
         let hole;
     		let holeNumber=Math.floor(Math.random()*9);
@@ -112,10 +114,10 @@ window.onload = function () {
         // Write the logic that the hamster randomly chooses to drill a hole, if it is the same hole as the previous one, then select a hole again.
         //console.log(holes);
        //return null;
-    }
+    }*/
 
     
-    function comeOutAndStop(hole, time) {
+    /*function comeOutAndStop(hole, time) {
         // Write the hamster out of the hole and stay for the corresponding time. If the game time is not over (timeUp), continue to exit the hole (peep).
          hole.classList.add('up');
          setTimeout(() => {
@@ -124,7 +126,7 @@ window.onload = function () {
         	peep();
         }
       },time);
-    }
+    }*/
 
     /**
      *Hit the mole. Add a click event for each mole, the score will show +1 after clicking, and the mole enters the hole
@@ -152,20 +154,20 @@ window.onload = function () {
         //  Write here what happened when the user clicked the joker.
         	console.log(e);
     	if(!timeUp){
-            lifes ++;
+            lives --;
 
-            switch(lifes){
-                case 1 :
-                    lifes1.classList.add('gray');
-                    break;
+            switch(lives){
                 case 2 :
-                    lifes1.classList.add('gray');
-                    lifes2.classList.add('gray');
+                    lives1.classList.add('gray');
                     break;
-                case 3 :
-                    lifes1.classList.add('gray');
-                    lifes2.classList.add('gray');
-                    lifes3.classList.add('gray');
+                case 1 :
+                    lives1.classList.add('gray');
+                    lives2.classList.add('gray');
+                    break;
+                case 0 :
+                    lives1.classList.add('gray');
+                    lives2.classList.add('gray');
+                    lives3.classList.add('gray');
                     gameIsFinished();
             }
     	}    	
