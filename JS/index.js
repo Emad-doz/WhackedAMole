@@ -5,9 +5,9 @@ window.onload = function () {
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker')
     const startBtn = document.getElementById('start_btn');
-    const lifes1 = document.getElementById('lifes1');
-    const lifes2 = document.getElementById('lifes2');
-    const lifes3 = document.getElementById('lifes3')
+    const life1 = document.getElementById('life1');
+    const life2 = document.getElementById('life2');
+    const life3 = document.getElementById('life3')
     let titleH1 = document.getElementById('title3');
     let titleH2 = document.getElementById('title2');
 
@@ -15,7 +15,7 @@ window.onload = function () {
     let timeUp = false;
     let score = 0;
     let gameTime = 10000;
-    let lifes = 0;
+    let life = 0;
 
     
 
@@ -25,13 +25,13 @@ window.onload = function () {
     }, false);
 
     function showBtnAnimation() {
-        event.preventDefault();
+        event.preventDefault(); 
 
         startBtn.classList.add('started');
-        // Button animation delay, what happens after the button animation ends: change to normal state (the start in the class is removed), the start button disappears
+        
         setTimeout(() => {
             startBtn.classList.remove('started');
-            startBtn.style.display = 'none';
+            startBtn.style.display = 'none'; 
         }, gameTime);
     }
 
@@ -55,9 +55,9 @@ window.onload = function () {
      */
     function resetScoreAndTime() {
         // Write the initial settings of the game
-        titleH1.innerHTML="WHACK-A-MOLE";
-        titleH2.innerHTML= "1"
-        scoreBoard.innerHTML=0;
+        titleH1.innerHTML="WHACK-A-MOLE"; // maha: do we need this ??
+        titleH2.innerHTML= "1" // // maha: do we need this ??
+        scoreBoard.innerHTML=0; 
         timeUp = false;
         score = 0;
         gameTime = 10000;
@@ -67,7 +67,7 @@ window.onload = function () {
      * Out of the hole.
      */
     function peep() {
-        const time = speed();
+        const time = speed(); // ??? 
         const hole = randomHole(holes);
         comeOutAndStop(hole, time);
     }
@@ -152,20 +152,20 @@ window.onload = function () {
         //  Write here what happened when the user clicked the joker.
         	console.log(e);
     	if(!timeUp){
-            lifes ++;
+            life ++;
 
-            switch(lifes){
+            switch(life){
                 case 1 :
-                    lifes1.classList.add('gray');
+                    life1.classList.add('gray');
                     break;
                 case 2 :
-                    lifes1.classList.add('gray');
-                    lifes2.classList.add('gray');
+                    life1.classList.add('gray');
+                    life2.classList.add('gray');
                     break;
                 case 3 :
-                    lifes1.classList.add('gray');
-                    lifes2.classList.add('gray');
-                    lifes3.classList.add('gray');
+                    life1.classList.add('gray');
+                    life2.classList.add('gray');
+                    life3.classList.add('gray');
                     gameIsFinished();
             }
     	}    	
