@@ -7,9 +7,10 @@ window.onload = function () {
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker')
     const startBtn = document.getElementById('start_btn');
-    const life1 = document.getElementById('life1');
-    const life2 = document.getElementById('life2');
-    const life3 = document.getElementById('life3')
+
+    //const lifes1 = document.getElementById('lifes1');
+    //const lifes2 = document.getElementById('lifes2');
+    //const lifes3 = document.getElementById('lifes3')
     let titleH1 = document.getElementById('title3');
     let titleH2 = document.getElementById('title2');
     let howToPlay=document.getElementsByClassName("how_to_play")
@@ -18,7 +19,9 @@ window.onload = function () {
     let timeUp = false;
     let score = 0;
     let gameTime = 10000;
-    let life = 3;
+
+    let lives = 3;
+
 
     
 
@@ -165,22 +168,9 @@ window.onload = function () {
         //  Write here what happened when the user clicked the joker.
         	console.log(e);
     	if(!timeUp){
-            life --;
-
-            switch(life){
-                case 2 :
-                    life1.classList.add('gray');
-                    break;
-                case 1 :
-                    life1.classList.add('gray');
-                    life2.classList.add('gray');
-                    break;
-                case 0 :
-                    life1.classList.add('gray');
-                    life2.classList.add('gray');
-                    life3.classList.add('gray');
-                    gameIsFinished();
-            }
+            lives --;
+            life.innerHTML=lives
+            
     	}    	
     }));
 

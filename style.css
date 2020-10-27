@@ -1,37 +1,107 @@
-title{
+.body {
+    width: 1500px;
+    margin: 0 auto;
+    background-color: #1E8449 ;
+    border: 5px black solid;
+    padding: 25px 50px;
+  } 
+  
+  .infopanel {
+    display:flex;
+    justify-content: space-around;
     align-items: center;
-}
-
-html {
     
-    background: plum;
-}
-
-
-body {
-    padding: 0;
-    margin: 0;
+  }
+  
+  .buttondiv {
+    display:flex;
+    flex-direction:column;
+  }
+  
+  .buttons {
+    width: 150px;
+    height: 70px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 1.5em;
+  }
+  
+  .lifescore {
+    width: 150px;
+    height: 90px;
+    font-size: 2em;
+  }
+  
+  .title{
     text-align: center;
-}
-
-h1{
-    font-size: 90px;
-}
-
-.container-top {
+    font-size: 4em;
+  }
+  
+  .levelpanel {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 200px;
+    font-size: 3em;
+  }
+  .scorediv {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+  }
+  
+  .lifediv {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  
+  .borders {
+    border: 1px black solid;
+  }
+  
+  .holegrid {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+     grid-template-rows: 150px 150px 150px;
+  }
+  
+  .flexgrid{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
-  #life{
-      width:30px;
-      height:30px;
+  .hole {
+  }
+  
+  .timediv {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8em;
   }
 
-.life-display{
-      margin-top: 50px;
-      }
+  .holebttn {
+    height: 100px;
+    width: 100px;
+    margin: 25px;
+    border-radius: 15px;
+    background-color: transparent;
+  }
+  
+  .time {
+    padding-right: 25px;
+  }
+  
+  footer {
+    text-align: center;
+  }
 
-#score{
-    margin-left: auto;
+  /*.hidden {
+      visibility: hidden;
+  }*/
+
+  .mole {
+      background-image: url(./images/mole.jpg) ;
+  }
+
+  .joker {
+    background-image: url(./images/heart.jpg);
 }
