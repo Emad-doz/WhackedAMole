@@ -1,57 +1,69 @@
+const whackedTheMole = new WhackedTheMole()
 
 
-window.onload = function () {
+// constructor(startButton, moles, joker, peepTime, lives)
+window.addEventListener('load' ,() => {
 
-    const holes = document.querySelectorAll('.hole');
-    const scoreBoard = document.querySelector('.score');
+    const startButton = document.getElementById('btn123');
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker')
-    const start_btn = document.getElementsByClassName('start_btn');
-    let titleH1 = document.getElementById('title3');
-    let titleH2 = document.getElementById('title2');
-    let howToPlay=document.getElementsByClassName("how_to_play")
-    let lives=document.getElementsByClassName("nooflives")
+    const scoreBoard = document.querySelector('.score');
+    const gameLevel = document.getElementsByClassName('.gameLevel');
+    const holes = document.querySelectorAll('.hole');
+    const howToPlay = document.getElementsByClassName("how_to_play")
+    const lives = document.getElementsByClassName("noOfLives");
+    let gameTime = 60000;
 
     let lastHole;
     let timeUp = false;
     let score = 0;
-    let gameTime = 10000;
-
-
-
-   start_btn.addEventListener('click', function () {
-        alert("Start clicked");
-        showBtnAnimation();
+    console.log(startButton);
+    startButton.addEventListener('click', function () {
         startGame();
-    }, false);
+        showBtnAnimation();
+       console.log("test");
+        
+    });
  
-
-/* start_btn.addEventListener('click', function startAGame() {
-    alert("Start clicked")
-}) */
-
     function showBtnAnimation() {
         event.preventDefault(); 
 
-        start_btn.classList.add('started');
+        startButton.classList.add('started');
         
         setTimeout(() => {
-            start_btn.classList.remove('started');
-            start_btn.style.display = 'none'; 
+            startButton.classList.remove('started');
+            startButton.style.display = 'none'; 
         }, gameTime);
+    }
+
+    function peep() {
+        const peepTime = whackedTheMole.speed(gameLevel);
+        const hole = whackedTheMole.randomHole(holes);
+        comeOutAndStop(hole, peepTime);
+    }
+
+    function comeOutAndStop(hole, peepTime) {
+        // Write the hamster out of the hole and stay for the corresponding time. If the game time is not over (timeUp), continue to exit the hole (peep).
+         hole.classList.remove('hidden');
+         setTimeout(() => {
+         	hole.classList.add('hidden');
+        if(!gameIsFinished()){
+        	peep();
+        }
+      },peepTime);
     }
 
 
     function startGame() {
         resetScoreAndTime();
         peep();
-
+        
         setTimeout(() => {
             //  Write what will happen when the game time is over
-             timeUp=true;
-            titleH1.innerHTML="TIME UP！";
-            start_btn.style.display='inline';
-            start_btn.innerHTML="Replay！";
+            timeUp = true;
+            //titleH1.innerHTML="TIME UP！";
+            startButton.style.display='inline';
+            startButton.innerHTML="Replay！";
             scoreBoard.innerHTML=score;
         }, gameTime)
     }
@@ -61,12 +73,11 @@ window.onload = function () {
      */
     function resetScoreAndTime() {
         // Write the initial settings of the game
-        titleH1.innerHTML="WHACK-A-MOLE"; 
-        titleH2.innerHTML= "1" 
-        scoreBoard.innerHTML=0; 
+        gameLevel.innerHTML = 1;
+        scoreBoard.innerHTML = 0; 
         timeUp = false;
-        score = 0;
-        gameTime = 10000;
+        score = 00;
+        gameTime = 60000;
     }
 
     /**
@@ -180,7 +191,7 @@ window.onload = function () {
 
 
 
-};
+});
    
 /* const whacktheMole = new WhackedTheMole();
 whacktheMole.gameIsFinished(lives,timeUp);

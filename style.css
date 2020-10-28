@@ -130,9 +130,9 @@
       margin: 0;
   }
 
-  /*.hidden {
+  .hidden {
       visibility: hidden;
-  }*/
+  }
 
   .mole {
       background-image: url(./images/mole.jpg) ;
