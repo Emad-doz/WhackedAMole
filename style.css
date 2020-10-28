@@ -19,6 +19,7 @@
   .buttondiv {
     display:flex;
     flex-direction:column;
+    margin-top: 20px;
   }
   
   .buttons {
@@ -30,6 +31,14 @@
     background-color:#9DC88D;
     color: black;
     border: 2px solid #F1B24A;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .buttons:hover {
+    background-color: #156d4a;
+    box-shadow: 0px 15px 20px rgba(24, 107, 74, 0.4);
+    color: #fff;
+    transform: translateY(-4px);
   }
   
   
@@ -47,6 +56,7 @@
     font-size: 4em;
     margin: 0;
     padding: 30px 0px;
+    color: #D0D3D4;
   }
   
   .levelpanel {
@@ -65,6 +75,7 @@
   .lifediv {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    padding-top: 10px;
   }
   
   .borders {
@@ -76,6 +87,9 @@
     grid-template-columns: 150px 150px 150px;
     grid-template-rows: 150px 150px 150px;
     padding: 20px;;
+    background-image: url(./images/ground.png);
+    border: 10px solid #774d22;
+    border-radius: 10px;
   }
   
   .flexgrid{
@@ -91,8 +105,8 @@
   }
 
   .holebttn {
-    height: 100px;
-    width: 100px;
+    height: 125px;
+    width: 125px;
     border-radius: 25px;
     background-color: transparent;
   }
