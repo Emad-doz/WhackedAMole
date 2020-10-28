@@ -82,7 +82,7 @@ class WhacktheJoker{
         }
 
         test(){
-            console.log(In what a Joker);
+            console.log("In what a Joker");
         }
         
     }

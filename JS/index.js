@@ -6,7 +6,7 @@ window.onload = function () {
     const scoreBoard = document.querySelector('.score');
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker')
-    const startBtn = document.getElementById('start_btn');
+    const start_btn = document.getElementsByClassName('start_btn');
     let titleH1 = document.getElementById('title3');
     let titleH2 = document.getElementById('title2');
     let howToPlay=document.getElementsByClassName("how_to_play")
@@ -19,19 +19,25 @@ window.onload = function () {
 
 
 
-    startBtn.addEventListener('click', function () {
+   start_btn.addEventListener('click', function () {
+        alert("Start clicked");
         showBtnAnimation();
         startGame();
     }, false);
+ 
+
+/* start_btn.addEventListener('click', function startAGame() {
+    alert("Start clicked")
+}) */
 
     function showBtnAnimation() {
         event.preventDefault(); 
 
-        startBtn.classList.add('started');
+        start_btn.classList.add('started');
         
         setTimeout(() => {
-            startBtn.classList.remove('started');
-            startBtn.style.display = 'none'; 
+            start_btn.classList.remove('started');
+            start_btn.style.display = 'none'; 
         }, gameTime);
     }
 
@@ -44,8 +50,8 @@ window.onload = function () {
             //  Write what will happen when the game time is over
              timeUp=true;
             titleH1.innerHTML="TIME UP！";
-            startBtn.style.display='inline';
-            startBtn.innerHTML="Replay！";
+            start_btn.style.display='inline';
+            start_btn.innerHTML="Replay！";
             scoreBoard.innerHTML=score;
         }, gameTime)
     }
@@ -176,7 +182,7 @@ window.onload = function () {
 
 };
    
-const whacktheMole = new WhackedTheMole();
+/* const whacktheMole = new WhackedTheMole();
 whacktheMole.gameIsFinished(lives,timeUp);
 const whackTheJoker = new WhacktheJoker();
-whackTheJoker.test();
+whackTheJoker.test(); */
