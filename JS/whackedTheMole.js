@@ -53,12 +53,8 @@ class WhackedTheMole {
         // write the logic for finishing the game
         if(lives === 0 || timeUp === true) {
             alert("Gameover");
-        }else{
-            alert("Continue the game")
         }
         //console.log("Game Over");
         
     }
-        
-    
 }
