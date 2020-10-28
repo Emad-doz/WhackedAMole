@@ -1,16 +1,19 @@
 .body {
     width: 1500px;
     margin: 0 auto;
-    background-color: #1E8449 ;
+    background-color: #4D774E ;
     border: 5px black solid;
-    padding: 25px 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   } 
   
   .infopanel {
     display:flex;
     justify-content: space-around;
     align-items: center;
-    
+  }
+
+  header {
+    background-color: #164A41;
   }
   
   .buttondiv {
@@ -24,23 +27,32 @@
     margin: 10px;
     border-radius: 10px;
     font-size: 1.5em;
+    background-color:#9DC88D;
+    color: black;
+    border: 2px solid #F1B24A;
   }
+  
   
   .lifescore {
     width: 150px;
     height: 90px;
     font-size: 2em;
+    border: 2px solid #F1B24A;
+    border-radius: 10px;
+    padding: 10px 15px;
   }
   
   .title{
     text-align: center;
     font-size: 4em;
+    margin: 0;
+    padding: 30px 0px;
   }
   
   .levelpanel {
     display: grid;
     grid-template-columns: 70% 30%;
-    width: 200px;
+    width: 250px;
     font-size: 3em;
   }
 
@@ -62,17 +74,16 @@
   .holegrid {
     display: grid;
     grid-template-columns: 150px 150px 150px;
-     grid-template-rows: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    padding: 20px;;
   }
   
   .flexgrid{
     display: flex;
     justify-content: center;
+    
   }
 
-  .hole {
-  }
-  
   .timediv {
     display: flex;
     justify-content: center;
@@ -82,8 +93,7 @@
   .holebttn {
     height: 100px;
     width: 100px;
-    margin: 25px;
-    border-radius: 15px;
+    border-radius: 25px;
     background-color: transparent;
   }
   
@@ -92,7 +102,18 @@
   }
   
   footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background-color:#164A41 ;
+    height: 60px;
+    font-weight: 600;
+    color: #D0D3D4;
+  }
+
+  footer p {
+      margin: 0;
   }
 
   /*.hidden {
