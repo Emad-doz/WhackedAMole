@@ -1,7 +1,7 @@
 .body {
     width: 1400px;
     margin: 0 auto;
-    background-color: #4D774E ;
+    background-image: url(./images/Green-grass.jpg);
     border: 5px black solid;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
   } 
@@ -49,6 +49,7 @@
     border: 2px solid #F1B24A;
     border-radius: 10px;
     padding: 10px 15px;
+    background-color:#9DC88D;
   }
   
   .title{
@@ -57,6 +58,10 @@
     margin: 0;
     padding: 30px 0px;
     color: #D0D3D4;
+  }
+
+  h3{
+    color: #D0D3D4 ;
   }
   
   .levelpanel {
@@ -134,12 +139,12 @@
   }
 
   .mole {
-      background-image: url(./images/mole-trans.png) ;
-      background-size: 100%;
+      background-image: url(./images/mole.jpg) ;
+      background-size: 120%;
       background-position: center;
       background-repeat: no-repeat
   }
 
   .joker {
-    background-image: url(./images/macolm.jpeg);
+    background-image: url(./images/macolm.jpg);
 }
