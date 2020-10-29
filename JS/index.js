@@ -46,6 +46,7 @@ window.addEventListener('load' ,() => {
         let newWindow = window.open("", "", "width=500,height=200");
         newWindow.document.write(newWindowContent);  
     });
+    
 
     startButton.addEventListener('click', function () {
         if (started === false) {
@@ -163,4 +164,3 @@ window.addEventListener('load' ,() => {
         location = location;
     }
 });
-
