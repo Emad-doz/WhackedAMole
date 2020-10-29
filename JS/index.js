@@ -171,7 +171,12 @@ window.addEventListener('load' ,() => {
 
 
     const endGame = () => {
-        alert(`Congrats! your score is ${score}`);
+        gameEnded = true;
+        if (life === 0) {
+            alert(`You ran out of lives, but your score is ${score}!`);
+        } else {
+            alert(`Congrats! your score is ${score}`);
+        }
 
         location = location;
     }
