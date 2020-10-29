@@ -108,6 +108,7 @@
     height: 125px;
     width: 125px;
     border-radius: 25px;
+    border: none;
   }
   
   .time {
