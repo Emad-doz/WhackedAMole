@@ -1,7 +1,7 @@
 .body {
   width: 1400px;
   margin: 0 auto;
-  background-image: url(./images/Green-grass.jpg);
+  background-image: url('./images/Green-grass.jpg');
   border: 5px black solid;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
 } 
@@ -94,9 +94,8 @@ h3{
   grid-template-columns: 150px 150px 150px;
   grid-template-rows: 150px 150px 150px;
   padding: 20px;
-  background-image: url(./images/ground.png);
+  background-image: url('./images/ground.png');
   border-radius: 100px;
-  cursor : url(./images/hammer.jpg),auto;
 }
   
 .flexgrid{
@@ -141,12 +140,12 @@ footer p {
 }
 
 .mole {
-  background-image: url(./images/mole.jpg) ;
+  background-image: url('./images/mole.jpg') ;
   background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .joker {
-  background-image: url(./images/macolm.jpg);
+  background-image: url('./images/macolm.jpg');
 }
