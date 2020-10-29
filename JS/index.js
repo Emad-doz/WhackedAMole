@@ -1,10 +1,9 @@
-// constructor(startButton, moles, joker, peepTime, lives)
+
 window.addEventListener('load' ,() => {
 
 
     const startButton = document.getElementById('start_btn');
     const moles = document.querySelectorAll('.mole');
-    const joker = document.querySelectorAll('.joker');
     const scoreBoard = document.querySelector('.score');
     const gameLevel = document.getElementById('gameLevel');
     const holes = document.querySelectorAll('.hole');
@@ -15,8 +14,7 @@ window.addEventListener('load' ,() => {
     let timing = 60;
     let molesTimeout;
     let gameEnded = false;
-    
-   // console.log("gamelevel",gameLevel.innerHTML)  
+     
     let started = false;
     let score = 0;
     let level = 1;
@@ -27,17 +25,19 @@ window.addEventListener('load' ,() => {
 
         switch(difficulty){
             case 1 :
-                time = 2500;
-                break;
-            case 2 :
-                time = 2000;
-                break;
-            case 3 :
                 time = 1500;
                 break;
-            case 4 :
+            case 2 :
+                time = 1250;
+                break;
+            case 3 :
                 time = 1000;
                 break;
+            case 4 :
+                time = 800;
+                break;
+            case 5 :
+                time = 600;
         }
 
         return time;
@@ -74,7 +74,6 @@ window.addEventListener('load' ,() => {
     }
 
     const resetScoreAndTime = () => {
-        // Write the initial settings of the game
         gameLevel.innerHTML = 1;
         scoreBoard.innerHTML = 0; 
         score = 0;
