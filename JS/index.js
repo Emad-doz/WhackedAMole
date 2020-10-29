@@ -9,7 +9,7 @@ window.addEventListener('load' ,() => {
     const gameLevel = document.getElementById('gameLevel');
     const holes = document.querySelectorAll('.hole');
     const howToPlay = document.getElementById("how_to_play")
-    const lives = document.getElementsByClassName("noOfLives");
+    const lives = document.getElementById("noOfLives");
     const timer = document.getElementById('timeseconds')
 
     let timing = 60;
@@ -20,6 +20,7 @@ window.addEventListener('load' ,() => {
     let started = false;
     let score = 0;
     let level = 1;
+    let life = parseInt(lives.innerHTML);
 
     const levelTiming = () => {
         let difficulty = parseInt(gameLevel.innerText);
@@ -45,7 +46,7 @@ window.addEventListener('load' ,() => {
     let levelTime = levelTiming();
 
     howToPlay.addEventListener('click', function () {
-        alert('Your main objective is to score the maximum number of points before the time runs out, the higher the score, higer the level and more difficult will be. Good Luck!');
+        alert('Your main objective is to hit the mole to score points, if you hit Malcolm you will lose 1 life, the game ends if you run out of lives or the time reaches 0. The higher the score the difficulty will increase. Good Luck!');
     });
 
     startButton.addEventListener('click', function () {
@@ -59,13 +60,14 @@ window.addEventListener('load' ,() => {
         gameEnded = false;
         resetScoreAndTime();
         moleTime();
+
         
         let chrono = setInterval(() => {
             timing--;
             refreshNumbers();
 
-            if (timing === 0) {
-                clearInterval(chrono)
+            if (timing === 0 || lives === 0) {
+                clearInterval(chrono);
                 endGame();
             }
         }, 1000);
@@ -78,12 +80,13 @@ window.addEventListener('load' ,() => {
         score = 0;
         level = 1;
         timer.innerHTML = timing;
+        lives.innerHTML = 3;
     }
 
     const moleTime = () => {
         holes.forEach((button) => {
             button.classList.add('hidden');
-            button.classList.remove('mole');
+            button.classList.remove('moles');
             button.classList.remove('joker');
         });
 
@@ -113,17 +116,25 @@ window.addEventListener('load' ,() => {
             activeJoker.classList.remove('hidden');
             activeJoker.classList.add('joker');
             activeMole.classList.remove('hidden');
-            activeMole.classList.add('mole');
+            activeMole.classList.add('moles');
         }
         
     };
     
     moles.forEach(mole => mole.addEventListener('click', function () {
-        score++;
-        refreshNumbers();
-        moleTime();
-        levelTiming();
-        levelUp();
+        if (mole.classList.contains('moles')) {
+            score++;
+            refreshNumbers();
+            moleTime();
+            levelTiming();
+            levelUp();
+        } else if (mole.classList.contains('joker')) {
+            life--;
+            refreshNumbers();
+            moleTime();
+            stillAlive();
+        }
+        
     }))
 
     const levelUp = () => {
@@ -145,12 +156,15 @@ window.addEventListener('load' ,() => {
         timer.innerHTML = timing;
         scoreBoard.innerHTML = score;
         levelTime = levelTiming();
+        lives.innerHTML = life;
     }
+
 
     const endGame = () => {
         gameEnded = true;
+        clearInterval(chrono);
         clearInterval(molesTimeout);
-        alert("Time's out!");
+        alert("Game's end");
         
     }
 
