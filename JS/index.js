@@ -1,6 +1,3 @@
-const whackedTheMole = new WhackedTheMole()
-
-
 // constructor(startButton, moles, joker, peepTime, lives)
 window.addEventListener('load' ,() => {
 
@@ -10,11 +7,11 @@ window.addEventListener('load' ,() => {
     const scoreBoard = document.querySelector('.score');
     const gameLevel = document.getElementById('gameLevel');
     const holes = document.querySelectorAll('.hole');
-    const howToPlay = document.getElementsByClassName("how_to_play")
+    const howToPlay = document.getElementById("how_to_play")
     const lives = document.getElementsByClassName("noOfLives");
     const timer = document.getElementById('timeseconds')
 
-    let timing = 60;
+    let timing = 90;
     let molesTimeout;
     
     
@@ -44,13 +41,22 @@ window.addEventListener('load' ,() => {
         return time;
     }
 
-    const levelTime = levelTiming();
+
+    let levelTime = levelTiming();
+
+    
+
+    howToPlay.addEventListener('click', function () {
+        alert('Your main objective is to score the maximum number of points before the time runs out, the higher the score, higer the level and more difficult will be. Good Luck!');
+    });
 
     startButton.addEventListener('click', function () {
         if (started === false) {
             startGame();
         }
     });
+
+    
 
     const startGame = () => {
         started = true;
@@ -62,7 +68,7 @@ window.addEventListener('load' ,() => {
             refreshNumbers();
 
             if (timing === 0) {
-                clearTimeout(chrono)
+                clearInterval(chrono)
                 endGame();
             }
         }, 1000);
@@ -96,7 +102,7 @@ window.addEventListener('load' ,() => {
         
     };
 
-    
+
 
     const showMole = () => {
         activeMole = document.getElementById(`hole${Math.floor(Math.random() * 9) + 1}`);
@@ -109,12 +115,36 @@ window.addEventListener('load' ,() => {
         score++;
         refreshNumbers();
         moleTime();
-        
+        levelTiming();
+        levelUp();
     }))
+
+    const levelUp = () => {
+        if ( score === 10){
+            level = 2;
+        }else if(score === 20){
+            level = 3;
+        }else if ( score === 30){
+            level = 4;
+        }else if ( score === 40){
+            level = 5;
+        }
+
+        gameLevel.innerHTML = level;
+        console.log(levelTime);
+    }
 
     const refreshNumbers = () => {
         timer.innerHTML = timing;
         scoreBoard.innerHTML = score;
+        levelTime = levelTiming();
+    }
+
+    const endGame = () => {
+        resetScoreAndTime();
+        clearInterval(molesTimeout);
+        alert("Time's out!");
+        
     }
 
         
