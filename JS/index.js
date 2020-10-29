@@ -1,6 +1,7 @@
 // constructor(startButton, moles, joker, peepTime, lives)
 window.addEventListener('load' ,() => {
 
+
     const startButton = document.getElementById('start_btn');
     const moles = document.querySelectorAll('.mole');
     const joker = document.querySelectorAll('.joker');
@@ -11,7 +12,7 @@ window.addEventListener('load' ,() => {
     const lives = document.getElementsByClassName("noOfLives");
     const timer = document.getElementById('timeseconds')
 
-    let timing = 10;
+    let timing = 60;
     let molesTimeout;
     let gameEnded = false;
     
@@ -41,10 +42,7 @@ window.addEventListener('load' ,() => {
         return time;
     }
 
-
     let levelTime = levelTiming();
-
-    
 
     howToPlay.addEventListener('click', function () {
         alert('Your main objective is to score the maximum number of points before the time runs out, the higher the score, higer the level and more difficult will be. Good Luck!');
@@ -55,8 +53,6 @@ window.addEventListener('load' ,() => {
             startGame();
         }
     });
-
-    
 
     const startGame = () => {
         started = true;
@@ -85,9 +81,10 @@ window.addEventListener('load' ,() => {
     }
 
     const moleTime = () => {
-        moles.forEach((button) => {
+        holes.forEach((button) => {
             button.classList.add('hidden');
-            button.classList.remove('mole')
+            button.classList.remove('mole');
+            button.classList.remove('joker');
         });
 
         clearInterval(molesTimeout);
@@ -104,18 +101,23 @@ window.addEventListener('load' ,() => {
         
     };
 
-
-
     const showMole = () => {
         if (!gameEnded) {
+
+            activeJoker = document.getElementById(`hole${Math.floor(Math.random() * 9) + 1}`);
             activeMole = document.getElementById(`hole${Math.floor(Math.random() * 9) + 1}`);
+            do {
+                activeJoker = document.getElementById(`hole${Math.floor(Math.random() * 9) + 1}`);
+            } 
+            while (activeJoker === activeMole);
+            activeJoker.classList.remove('hidden');
+            activeJoker.classList.add('joker');
             activeMole.classList.remove('hidden');
             activeMole.classList.add('mole');
         }
         
     };
     
-
     moles.forEach(mole => mole.addEventListener('click', function () {
         score++;
         refreshNumbers();
