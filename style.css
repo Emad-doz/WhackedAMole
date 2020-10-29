@@ -1,9 +1,9 @@
 .body {
-    width: 1500px;
+    width: 1400px;
     margin: 0 auto;
     background-color: #4D774E ;
     border: 5px black solid;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
   } 
   
   .infopanel {
@@ -86,7 +86,7 @@
     display: grid;
     grid-template-columns: 150px 150px 150px;
     grid-template-rows: 150px 150px 150px;
-    padding: 20px;;
+    padding: 20px;
     background-image: url(./images/ground.png);
     border: 10px solid #774d22;
     border-radius: 10px;
@@ -108,7 +108,6 @@
     height: 125px;
     width: 125px;
     border-radius: 25px;
-    background-color: transparent;
   }
   
   .time {
