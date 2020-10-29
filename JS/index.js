@@ -10,6 +10,10 @@ window.addEventListener('load' ,() => {
     const howToPlay = document.getElementById("how_to_play")
     const lives = document.getElementById("noOfLives");
     const timer = document.getElementById('timeseconds')
+    const instructionDisplay=document.getElementById("hide");
+    //instructionDisplay.style.display = "none";
+
+    //button.classList.remove('moles')
 
     let timing = 60;
     let molesTimeout;
@@ -19,6 +23,7 @@ window.addEventListener('load' ,() => {
     let score = 0;
     let level = 1;
     let life = parseInt(lives.innerHTML);
+
 
     const levelTiming = () => {
         let difficulty = parseInt(gameLevel.innerText);
@@ -46,8 +51,21 @@ window.addEventListener('load' ,() => {
     let levelTime = levelTiming();
 
     howToPlay.addEventListener('click', function () {
-        alert(`INSTRUCTION:,\n\n'Your main objective is to hit the mole to score points, if you hit Malcolm you will lose 1 life, the game ends if you run out of lives or the time reaches 0. The higher the score the difficulty will increase. Good Luck!`);
+        
+        instructionDisplay.style.display = "block";
+        instructionDisplay.style.position = "relative";
+        //instructionDisplay.style.background = "green";
+        document.getElementById("ok").addEventListener("click", function (){
+        instructionDisplay.style.display = "none";
+
+        });
+/* 
+       const newWindowConent = document.getElementById("hide").innerHTML;
+        console.log(newWindowConent);
+        const newWindow = window.open("", "", "width=1000,height=1400");
+        newWindow.write(newWindowContent);  */
     });
+    
 
     startButton.addEventListener('click', function () {
         if (started === false) {

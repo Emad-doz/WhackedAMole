@@ -140,3 +140,20 @@
   .joker {
     background-image: url(./images/heart.jpg);
 }
+
+ #hide {
+  display: none;
+  
+}
+
+#ok{
+  display: flex;
+  position: absolute;
+  background-color: lightblue;
+  width : 30px;
+  height : 30px;
+  margin: 10px;
+  padding : 10px;
+}
+
+
