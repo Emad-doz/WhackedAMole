@@ -1,0 +1,152 @@
+.body {
+  width: 1400px;
+  margin: 0 auto;
+  background-image: url(./images/Green-grass.jpg);
+  border: 5px black solid;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+} 
+  
+.infopanel {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button{
+  outline: none;
+}
+
+header {
+  background-color: #164A41;
+}
+  
+.buttondiv {
+  display:flex;
+  flex-direction:column;
+  margin-top: 20px;
+}
+  
+.buttons {
+  width: 150px;
+  height: 70px;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  background-color:#9DC88D;
+  color: black;
+  border: 2px solid #F1B24A;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.buttons:hover {
+  background-color: #156d4a;
+  box-shadow: 0px 15px 20px rgba(24, 107, 74, 0.4);
+  color: white;
+  transform: translateY(-8px);
+}
+  
+.lifescore {
+  width: 150px;
+  height: 90px;
+  font-size: 2em;
+  border: 2px solid #F1B24A;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color:#9DC88D;
+}
+  
+.title{
+  text-align: center;
+  font-size: 4em;
+  margin: 0;
+  padding: 30px 0px;
+  color: #D0D3D4;
+}
+
+h3{
+  color: #D0D3D4 ;
+}
+  
+.levelpanel {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  width: 250px;
+  font-size: 3em;
+}
+
+.scorediv {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+  
+.lifediv {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-top: 10px;
+}
+
+.borders {
+  border: 1px black solid;
+}
+
+.holegrid {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+  padding: 20px;
+  background-image: url(./images/ground.png);
+  border-radius: 100px;
+  cursor : url(./images/hammer.jpg),auto;
+}
+  
+.flexgrid{
+  display: flex;
+  justify-content: center;
+}
+
+.timediv {
+  display: flex;
+  justify-content: center;
+  font-size: 1.8em;
+}
+
+.holebttn {
+  height: 125px;
+  width: 125px;
+  border-radius: 25px;
+  border-style: none;
+}
+  
+.time {
+  padding-right: 25px;
+}
+  
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color:#164A41 ;
+  height: 60px;
+  font-weight: 600;
+  color: #D0D3D4;
+}
+
+footer p {
+  margin: 0;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.mole {
+  background-image: url(./images/mole.jpg) ;
+  background-size: 120%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.joker {
+  background-image: url(./images/macolm.jpg);
+}
