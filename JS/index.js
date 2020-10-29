@@ -1,10 +1,9 @@
-// constructor(startButton, moles, joker, peepTime, lives)
+
 window.addEventListener('load' ,() => {
 
 
     const startButton = document.getElementById('start_btn');
     const moles = document.querySelectorAll('.mole');
-    const joker = document.querySelectorAll('.joker');
     const scoreBoard = document.querySelector('.score');
     const gameLevel = document.getElementById('gameLevel');
     const holes = document.querySelectorAll('.hole');
@@ -15,8 +14,7 @@ window.addEventListener('load' ,() => {
     let timing = 60;
     let molesTimeout;
     let gameEnded = false;
-    
-   // console.log("gamelevel",gameLevel.innerHTML)  
+     
     let started = false;
     let score = 0;
     let level = 1;
@@ -27,17 +25,19 @@ window.addEventListener('load' ,() => {
 
         switch(difficulty){
             case 1 :
-                time = 2500;
-                break;
-            case 2 :
-                time = 2000;
-                break;
-            case 3 :
                 time = 1500;
                 break;
-            case 4 :
+            case 2 :
+                time = 1250;
+                break;
+            case 3 :
                 time = 1000;
                 break;
+            case 4 :
+                time = 800;
+                break;
+            case 5 :
+                time = 600;
         }
 
         return time;
@@ -66,7 +66,7 @@ window.addEventListener('load' ,() => {
             timing--;
             refreshNumbers();
 
-            if (timing === 0 || lives === 0) {
+            if (timing === 0) {
                 clearInterval(chrono);
                 endGame();
             }
@@ -74,7 +74,6 @@ window.addEventListener('load' ,() => {
     }
 
     const resetScoreAndTime = () => {
-        // Write the initial settings of the game
         gameLevel.innerHTML = 1;
         scoreBoard.innerHTML = 0; 
         score = 0;
@@ -84,23 +83,26 @@ window.addEventListener('load' ,() => {
     }
 
     const moleTime = () => {
-        holes.forEach((button) => {
+        if(!gameEnded) {
+            holes.forEach((button) => {
             button.classList.add('hidden');
             button.classList.remove('moles');
             button.classList.remove('joker');
-        });
+            });
 
-        clearInterval(molesTimeout);
+            clearInterval(molesTimeout);
+            
+            setTimeout(() => {
+                showMole();
+
+                molesTimeout = setInterval(() => {
+                    moleTime();
         
-        setTimeout(() => {
-            showMole();
+                }, levelTime);
 
-            molesTimeout = setInterval(() => {
-                moleTime();
-    
-            }, levelTime);
-
-        }, Math.floor(Math.random() * 500) + 250);
+            }, Math.floor(Math.random() * 500) + 250);
+        }
+        
         
     };
 
@@ -159,13 +161,23 @@ window.addEventListener('load' ,() => {
         lives.innerHTML = life;
     }
 
+    const stillAlive = () => {
+        if (life <= 0) {
+            endGame();
+        }
+
+    }
+
 
     const endGame = () => {
         gameEnded = true;
-        clearInterval(chrono);
-        clearInterval(molesTimeout);
-        alert("Game's end");
-        
+        if (life === 0) {
+            alert(`You ran out of lives, but your score is ${score}!`);
+        } else {
+            alert(`Congrats! your score is ${score}`);
+        }
+
+        location = location;
     }
 
         
