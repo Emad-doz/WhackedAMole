@@ -10,8 +10,8 @@ window.addEventListener('load' ,() => {
     const howToPlay = document.getElementById("how_to_play")
     const lives = document.getElementById("noOfLives");
     const timer = document.getElementById('timeseconds')
-    const instructionDisplay=document.getElementById("hide");
-    //instructionDisplay.style.display = "none";
+    const instructionDisplay=document.getElementById("popup1");
+    instructionDisplay.style.display = "none";
 
     //button.classList.remove('moles')
 
@@ -52,18 +52,10 @@ window.addEventListener('load' ,() => {
 
     howToPlay.addEventListener('click', function () {
         
-        instructionDisplay.style.display = "block";
-        instructionDisplay.style.position = "relative";
-        //instructionDisplay.style.background = "green";
-        document.getElementById("ok").addEventListener("click", function (){
-        instructionDisplay.style.display = "none";
-
-        });
-/* 
-       const newWindowConent = document.getElementById("hide").innerHTML;
-        console.log(newWindowConent);
-        const newWindow = window.open("", "", "width=1000,height=1400");
-        newWindow.write(newWindowContent);  */
+        const newWindowContent = document.getElementById("popup1").innerHTML;
+        console.log(newWindowContent);
+        let newWindow = window.open("", "", "width=500,height=500");
+        newWindow.document.write(newWindowContent);  
     });
     
 

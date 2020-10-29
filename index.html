@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang = "en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./style.css">
-        <title class="title">Whack a Mole and not Malcolm</title>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href = "./style.css">
+        <title class = "title">Whack a Mole and not Malcolm</title>
     </head>
 
     <body>
-        <div  class='body'>
+        <div class="body">
         <header>
-            <h1 class='title'>Whack a mole</h1>
+            <h1 class = "title">Whack a mole</h1>
         </header>
         <div class='infopanel'>
             <div class='buttondiv'>
                 <button id = "start_btn" class='buttons'>Start</button>
                 <button id='how_to_play' class='buttons'>How to play</button>
-                
             </div>
             <div class='levelpanel'>
                 <h3 class='titleH1'>Level </h3>
@@ -32,45 +30,26 @@
                     0
                     </div>
                 </div>
-                <div class='lifediv'>
-                    <div>
-                    Lives
-                    </div>
-                    <div id="noOfLives">
-                        3
-                    </div>
-                    <!--<div class='lifes1'>
-                    0
-                    </div>
-                    <div class='lifes2'>
-                    0
-                    </div>
-                    <div class='lifes3'>
-                    0
-                    </div>-->
-                </div>
+                <div class = "lifediv">
+                    <div>Lives</div>
+                    <div id = "noOfLives">3</div>
+                 </div>
             </div>
         </div>
         <main>
-            <div id ="hide">
-                <div>
-                INSTRUCTIONS
-                </div>
-                <div>
-                    1. Hit Mole to Score More within time given which you can see on the game page.
-                </div>
-                <div>
-                    2. You will given 3 lives, whenever you hit Malcolm you lose one life.
-                </div>
-                <div>
-                    3. Find the Mole hit and keep scoring without hitting malcolm. 
-                </div>
-                <div>
-                <button id="ok">OK</button>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Instructions</h2>
+                    <h3>
+                        <div class="content">
+                        Higher you score when you hit Moles, you will be given 3 lives, when you hit Malcolm you lose life. Pay attention to the time. As when the score increses your level will go up.
+                        </div>
+                    </h3>
                 </div>
             </div>
-            <div class='flexgrid'>
-                <div class='holegrid'>
+
+            <div class= "flexgrid">
+                <div class= "holegrid">
                     <div>
                         <button id="hole1" class="hidden hole holebttn mole"></button>
                     </div>

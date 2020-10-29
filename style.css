@@ -1,7 +1,7 @@
 .body {
     width: 1400px;
     margin: 0 auto;
-    background-color: #4D774E ;
+    background-image: url(./images/Green-grass.jpg);
     border: 5px black solid;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
   } 
@@ -38,7 +38,7 @@
     background-color: #156d4a;
     box-shadow: 0px 15px 20px rgba(24, 107, 74, 0.4);
     color: #fff;
-    transform: translateY(-4px);
+    transform: translateY(-8px);
   }
   
   
@@ -49,6 +49,7 @@
     border: 2px solid #F1B24A;
     border-radius: 10px;
     padding: 10px 15px;
+    background-color:#9DC88D;
   }
   
   .title{
@@ -57,6 +58,10 @@
     margin: 0;
     padding: 30px 0px;
     color: #D0D3D4;
+  }
+
+  h3{
+    color: #D0D3D4 ;
   }
   
   .levelpanel {
@@ -135,25 +140,80 @@
 
   .mole {
       background-image: url(./images/mole.jpg) ;
+      background-size: 120%;
+      background-position: center;
+      background-repeat: no-repeat
   }
 
   .joker {
-    background-image: url(./images/heart.jpg);
+    background-image: url(./images/macolm.jpg);
 }
 
- #hide {
-  display: none;
-  
+/* .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
 }
 
-#ok{
-  display: flex;
+.content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
   position: absolute;
-  background-color: lightblue;
-  width : 30px;
-  height : 30px;
-  margin: 10px;
-  padding : 10px;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
 }
 
 
+#how_to_play {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+how_to_play:hover {
+  background: #06D85F;
+} */
