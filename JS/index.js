@@ -11,20 +11,16 @@ window.addEventListener('load' ,() => {
     const gameLevel = document.getElementById('gameLevel');
     const holes = document.querySelectorAll('.hole');
     const howToPlay = document.getElementsByClassName("how_to_play")
-    const lives = document.getElementsByClassName("noOfLives");
+    const lives = document.getElementById('noOfLives');
     const gameTime = 60000;
-    
-   // console.log("gamelevel",gameLevel.innerHTML)  
-    let lastHole;
     let timeUp = false;
     let score = 0;
     let level = 1;
-    console.log(startButton);
+    let life =3;
+   
     startButton.addEventListener('click', function () {
         startGame();
         showBtnAnimation();
-       console.log("test");
-        
     });
  
     function showBtnAnimation() {
@@ -34,18 +30,16 @@ window.addEventListener('load' ,() => {
         
         setTimeout(() => {
             startButton.classList.remove('started');
-           // startButton.style.display = 'none'; 
         }, gameTime);
     }
 
     function peep() {
-        const peepTime = whackedTheMole.speed(gameLevel);
+        const peepTime = whackedTheMole.speed(level);
         const hole = whackedTheMole.randomHole(holes);
         comeOutAndStopMole(hole, peepTime);
     }
 
     function comeOutAndStopMole(hole, peepTime) {
-        // Write the hamster out of the hole and stay for the corresponding time. If the game time is not over (timeUp), continue to exit the hole (peep).
          hole.classList.remove('hidden');
          hole.classList.add('mole')
          setTimeout(() => {
@@ -57,52 +51,28 @@ window.addEventListener('load' ,() => {
       },peepTime);
     }
 
-    /*function comeOutAndStopJoker(hole, peepTime) {
-        // Write the hamster out of the hole and stay for the corresponding time. If the game time is not over (timeUp), continue to exit the hole (peep).
-         hole.classList.remove('hidden');
-         hole.classList.add('joker')
-         setTimeout(() => {
-             hole.classList.add('hidden');
-             hole.classList.remove('joker');
-        if(!whackedTheMole.gameIsFinished()){
-        	peep();
-        }
-      },peepTime);
-    }*/
-
-
     function startGame() {
         resetScoreAndTime();
         peep();
         
         setTimeout(() => {
-            //  Write what will happen when the game time is over
             timeUp = true;
-            //titleH1.innerHTML="TIME UP！";
             startButton.style.display='inline';
             startButton.innerHTML="Replay！";
             scoreBoard.innerHTML=score;
         }, gameTime)
     }
-
-    /**
-     * Initialize settings.
-     */
+    
     function resetScoreAndTime() {
-        // Write the initial settings of the game
         gameLevel.innerHTML = 1;
         scoreBoard.innerHTML = 0; 
         timeUp = false;
         score = 0;
         gameTime;
     }
-    /**
-     *Hit the mole. Add a click event for each mole, the score will show +1 after clicking, and the mole enters the hole
-     */
-    moles.forEach(mole => mole.addEventListener('click', function (e) {
-        //  Write here what happened when the user clicked the mole.
-        	console.log(e);
-    	if(!timeUp){
+    
+   /* moles.forEach(mole => mole.addEventListener('click', function (e) {
+        if(!timeUp){
             score ++;
             if ( score === 10){
                 level = 2;
@@ -112,43 +82,19 @@ window.addEventListener('load' ,() => {
                 level = 4;
             }
             gameLevel.innerHTML = level;
-           
-            scoreBoard.innerHTML = score;
-            
-            console.log(score);
-            
-        }   
-        
-        
-    }));
-
-    //Click event listener for how to play button
-    /*howToPlay.addEventListener('click', function myFunction() {
-            var popup = document.getElementsByClassName("how_to_play");
-            popup.classList.toggle("show");
-          
-    })*/
-
+            scoreBoard.innerHTML = score; 
+        }      
+    }));*/
 
     joker.forEach(joker => joker.addEventListener('click', function (e) {
         //  Write here what happened when the user clicked the joker.
-        	console.log(e);
-    	if(!timeUp){
-            lives --;
-            life.innerHTML=lives
-            
+    	if (!timeUp){
+            life --;
+            if (life > 0){
+                lives.innerHTML = life;
+            } else {
+                whackedTheMole.gameIsFinished();
+            }
     	}    	
     }));
-
-
-    
-
-
-
-
 });
-   
-/* const whacktheMole = new WhackedTheMole();
-whacktheMole.gameIsFinished(lives,timeUp);
-const whackTheJoker = new WhacktheJoker();
-whackTheJoker.test(); */

@@ -135,9 +135,12 @@
   }
 
   .mole {
-      background-image: url(./images/mole.jpg) ;
+      background-image: url(./images/mole-trans.png) ;
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat
   }
 
   .joker {
-    background-image: url(./images/heart.jpg);
+    background-image: url(./images/macolm.jpeg);
 }
