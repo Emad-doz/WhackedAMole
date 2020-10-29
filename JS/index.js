@@ -66,7 +66,7 @@ window.addEventListener('load' ,() => {
             timing--;
             refreshNumbers();
 
-            if (timing === 0 || lives === 0) {
+            if (timing === 0) {
                 clearInterval(chrono);
                 endGame();
             }
@@ -84,23 +84,26 @@ window.addEventListener('load' ,() => {
     }
 
     const moleTime = () => {
-        holes.forEach((button) => {
+        if(!gameEnded) {
+            holes.forEach((button) => {
             button.classList.add('hidden');
             button.classList.remove('moles');
             button.classList.remove('joker');
-        });
+            });
 
-        clearInterval(molesTimeout);
+            clearInterval(molesTimeout);
+            
+            setTimeout(() => {
+                showMole();
+
+                molesTimeout = setInterval(() => {
+                    moleTime();
         
-        setTimeout(() => {
-            showMole();
+                }, levelTime);
 
-            molesTimeout = setInterval(() => {
-                moleTime();
-    
-            }, levelTime);
-
-        }, Math.floor(Math.random() * 500) + 250);
+            }, Math.floor(Math.random() * 500) + 250);
+        }
+        
         
     };
 
@@ -159,13 +162,18 @@ window.addEventListener('load' ,() => {
         lives.innerHTML = life;
     }
 
+    const stillAlive = () => {
+        if (life <= 0) {
+            endGame();
+        }
+
+    }
+
 
     const endGame = () => {
-        gameEnded = true;
-        clearInterval(chrono);
-        clearInterval(molesTimeout);
-        alert("Game's end");
-        
+        alert(`Congrats! your score is ${score}`);
+
+        location = location;
     }
 
         
