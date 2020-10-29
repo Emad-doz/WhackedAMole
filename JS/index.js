@@ -11,9 +11,9 @@ window.addEventListener('load' ,() => {
     const lives = document.getElementsByClassName("noOfLives");
     const timer = document.getElementById('timeseconds')
 
-    let timing = 90;
+    let timing = 10;
     let molesTimeout;
-    
+    let gameEnded = false;
     
    // console.log("gamelevel",gameLevel.innerHTML)  
     let started = false;
@@ -60,6 +60,7 @@ window.addEventListener('load' ,() => {
 
     const startGame = () => {
         started = true;
+        gameEnded = false;
         resetScoreAndTime();
         moleTime();
         
@@ -80,6 +81,7 @@ window.addEventListener('load' ,() => {
         scoreBoard.innerHTML = 0; 
         score = 0;
         level = 1;
+        timer.innerHTML = timing;
     }
 
     const moleTime = () => {
@@ -105,9 +107,12 @@ window.addEventListener('load' ,() => {
 
 
     const showMole = () => {
-        activeMole = document.getElementById(`hole${Math.floor(Math.random() * 9) + 1}`);
-        activeMole.classList.remove('hidden');
-        activeMole.classList.add('mole');
+        if (!gameEnded) {
+            activeMole = document.getElementById(`hole${Math.floor(Math.random() * 9) + 1}`);
+            activeMole.classList.remove('hidden');
+            activeMole.classList.add('mole');
+        }
+        
     };
     
 
@@ -141,7 +146,7 @@ window.addEventListener('load' ,() => {
     }
 
     const endGame = () => {
-        resetScoreAndTime();
+        gameEnded = true;
         clearInterval(molesTimeout);
         alert("Time's out!");
         
