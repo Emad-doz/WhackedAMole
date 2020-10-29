@@ -46,7 +46,7 @@ window.addEventListener('load' ,() => {
     let levelTime = levelTiming();
 
     howToPlay.addEventListener('click', function () {
-        alert('Your main objective is to hit the mole to score points, if you hit Malcolm you will lose 1 life, the game ends if you run out of lives or the time reaches 0. The higher the score the difficulty will increase. Good Luck!');
+        alert(`INSTRUCTION:,\n\n'Your main objective is to hit the mole to score points, if you hit Malcolm you will lose 1 life, the game ends if you run out of lives or the time reaches 0. The higher the score the difficulty will increase. Good Luck!`);
     });
 
     startButton.addEventListener('click', function () {
