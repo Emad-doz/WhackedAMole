@@ -8,6 +8,8 @@ window.addEventListener('load' ,() => {
     const lives = document.getElementById("noOfLives");
     const timer = document.getElementById('timeseconds');
     const instructionDisplay=document.getElementById("popup1");
+    const soundForButtonMole = document.getElementById("moleAudio"); 
+    const soundForButtonJoker = document.getElementById("jokerAudio");
     instructionDisplay.style.display = "none";
 
     let timing = 60;
@@ -113,17 +115,20 @@ window.addEventListener('load' ,() => {
     };
     
     moles.forEach(mole => mole.addEventListener('click', function () {
+        
         if (mole.classList.contains('moles')) {
             score++;
             refreshNumbers();
             moleTime();
             levelTiming();
             levelUp();
+            soundForButtonMole.play(); 
         } else if (mole.classList.contains('joker')) {
             life--;
             refreshNumbers();
             moleTime();
             stillAlive();
+            soundForButtonJoker.play(); 
         }
     }));
 
