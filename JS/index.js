@@ -138,7 +138,6 @@ window.addEventListener('load' ,() => {
             level = 5;
         }
         gameLevel.innerHTML = level;
-        console.log(levelTime);
     }
 
     const refreshNumbers = () => {
