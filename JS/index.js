@@ -22,19 +22,19 @@ window.addEventListener('load' ,() => {
         let difficulty = parseInt(gameLevel.innerText);
         switch(difficulty){
             case 1 :
-                time = 1500;
-                break;
-            case 2 :
-                time = 1250;
-                break;
-            case 3 :
-                time = 1000;
-                break;
-            case 4 :
                 time = 800;
                 break;
+            case 2 :
+                time = 650;
+                break;
+            case 3 :
+                time = 550;
+                break;
+            case 4 :
+                time = 500;
+                break;
             case 5 :
-                time = 600;
+                time = 450;
         }
         return time;
     }
@@ -158,7 +158,15 @@ window.addEventListener('load' ,() => {
         if (life === 0) {
             alert(`You ran out of lives, but your score is ${score}!`);
         } else {
-            alert(`Congrats! your score is ${score}`);
+            if (score <= 19){
+                alert(`Your score is ${score} keep training`);
+            }else if (score <= 29){
+                alert(`Your score is ${score} Good job`);
+            }else if (score <= 39){
+                alert(`Your score is ${score} You're amazing`);
+            }else if (score >= 40){
+                alert(`Your score is ${score} You're a legend`);
+            }
         }
         location = location;
     }
