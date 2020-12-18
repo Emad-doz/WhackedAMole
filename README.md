@@ -1,4 +1,4 @@
-# Whacked a Mole not Malcolm 
+# Whacked a Mole not the Joker
 IronHack first project
 
 https://emad-doz.github.io/WhackedAMole/.
